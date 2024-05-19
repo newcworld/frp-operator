@@ -132,6 +132,7 @@ func NewConfig(k8sclient client.Client, clientObject *frpv1alpha1.Client, upstre
 			}
 
 			if upstreamObject.Spec.TCP.HealthCheck != nil {
+				upstream.TCP.HealthCheck = &Upstream_TCP_HealthCheck{}
 				upstream.TCP.HealthCheck.IntervalSeconds = upstreamObject.Spec.TCP.HealthCheck.IntervalSeconds
 				upstream.TCP.HealthCheck.MaxFailed = upstreamObject.Spec.TCP.HealthCheck.MaxFailed
 				upstream.TCP.HealthCheck.TimeoutSeconds = upstreamObject.Spec.TCP.HealthCheck.TimeoutSeconds
